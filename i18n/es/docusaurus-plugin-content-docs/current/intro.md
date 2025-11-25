@@ -2,45 +2,37 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro - ES
+# 📘 Introducción a Bamboo Cloud Services
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Bienvenido a la documentación oficial de **Bamboo Cloud Services**.  
+Este conjunto de microservicios permite la **integración con sistemas externos de China**, como **KingDee** y **Smart Link**, para centralizar y gestionar información de ventas provenientes de distintos canales.
 
-## Getting Started
+## 🎯 Objetivo del Sistema
 
-Get started by **creating a new site**.
+El objetivo de Bamboo Cloud Services es facilitar la integración de información de ventas de diferentes fuentes en un único ecosistema, permitiendo:
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+- Recibir ventas generadas en sistemas **POS**.
+- Recibir ventas provenientes de **e-commerce** como Mercado Libre o Amazon, gestionadas a través de un sistema chino intermediario.
+- Procesar y almacenar los datos de manera eficiente y escalable.
 
-### What you'll need
+## 🏗️ Arquitectura General
 
-- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+Actualmente, el sistema cuenta con **dos microservicios principales**:
 
-## Generate a new site
+1. **Microservicio de Ventas POS:** Recibe las ventas generadas en puntos de venta físicos.
+2. **Microservicio de Ventas E-commerce:** Recibe las ventas provenientes de plataformas de comercio electrónico, gestionadas a través de un sistema chino intermediario.
 
-Generate a new Docusaurus site using the **classic template**.
+En el futuro, se podrán agregar más microservicios según las necesidades del negocio.
 
-The classic template will automatically be added to your project after you run the command:
+## ⚙️ Tecnologías Principales
 
-```bash
-npm init docusaurus@latest my-website classic
-```
+El sistema se construye con las siguientes tecnologías:
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+- **.NET Core 8** mediante **Azure Functions Isolated**
+- **SQL Server** y **Cosmos DB** para almacenamiento de datos
+- **CQRS** como patrón de diseño para separar lectura y escritura
+- **Entity Framework** para el acceso a datos
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+## 🔄 Comunicación entre Microservicios
 
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+La comunicación entre microservicios se realiza de manera **asíncrona**, asegurando desacoplamiento y escalabilidad del sistema.
