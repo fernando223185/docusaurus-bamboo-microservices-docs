@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Microservicio de Usuarios
+# Microservicio de
 
 Este microservicio gestiona la información de los usuarios y está desplegado en Azure.  
 Proporciona endpoints REST para crear, actualizar, eliminar y consultar usuarios.
