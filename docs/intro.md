@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# 📘 Introduction to Bamboo Cloud Services
+# 📘 Introduction
 
 Welcome to the official documentation for **Bamboo Cloud Services**.  
 This set of microservices enables **integration with external Chinese systems**, such as **KingDee** and **Smart Link**, to centralize and manage sales data from multiple channels.
