@@ -5,6 +5,7 @@ import Heading from '@theme/Heading'
 import Layout from '@theme/Layout'
 import clsx from 'clsx'
 import type { ReactNode } from 'react'
+import Translate from '@docusaurus/Translate'
 
 import styles from './index.module.css'
 
@@ -25,7 +26,9 @@ function HomepageHeader() {
             className='button button--secondary button--lg'
             to='/docs/intro'
           >
-            Documentación
+            <Translate id="homepage.getStarted" description="Homepage get started button">
+              Documentation
+            </Translate>
           </Link>
         </div>
       </div>

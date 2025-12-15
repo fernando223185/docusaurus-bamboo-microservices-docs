@@ -325,5 +325,9 @@
   "theme.tags.tagsPageTitle": {
     "message": "Etiquetas",
     "description": "The title of the tag list page"
+  },
+  "homepage.getStarted": {
+    "message": "Documentación",
+    "description": "Homepage get started button"
   }
 }

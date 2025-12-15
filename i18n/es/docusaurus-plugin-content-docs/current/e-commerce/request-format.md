@@ -23,12 +23,10 @@ POST /api/StoreSale
   "BillDate": "2025-12-01",
   "OrderDetails": [
     {
-      "ProductId": 87,
       "Code": "NET-900",
       "Name": "Router Cisco RV340",
       "Price": 5250.99,
       "Quantity": 1,
-      "Comentaries": "Empacar con papel burbuja y verificar el número de serie antes del envío.",
       "WarehouseId": 2
     }
   ]
@@ -39,7 +37,7 @@ POST /api/StoreSale
 
 ### Endpoint
 
-DELETE /api/storeorder/cancel/{orderId}?warehouseId={warehouseId}
+DELETE /api/storeorder/cancel/`{orderId}`?warehouseId=`{warehouseId}`
 
 ### Parámetros
 
@@ -52,7 +50,7 @@ DELETE /api/storeorder/cancel/{orderId}?warehouseId={warehouseId}
 
 | Header | Valor | Requerido | Descripción |
 |--------|-------|-----------|-------------|
-| Authorization | Bearer {token} | Sí | Token de autenticación |
+| Authorization | Bearer `{token}` | Sí | Token de autenticación |
 
 ### Ejemplo de Solicitud
 

@@ -38,6 +38,11 @@ const sidebars: SidebarsConfig = {
         },
       ],
     },
+    {
+      type: 'link',
+      label: '🚀 Interactive API',
+      href: '/api',
+    },
   ],
   // But you can create a sidebar manually
   // tutorialSidebar: [

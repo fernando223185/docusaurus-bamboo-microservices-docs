@@ -23,12 +23,10 @@ POST /api/StoreSale
   "BillDate": "2025-12-01",
   "OrderDetails": [
     {
-      "ProductId": 87,
       "Code": "NET-900",
       "Name": "Cisco Router RV340",
       "Price": 5250.99,
       "Quantity": 1,
-      "Comentaries": "Pack with bubble wrap and verify the serial number before shipping.",
       "WarehouseId": 2
     }
   ]
@@ -39,7 +37,7 @@ POST /api/StoreSale
 
 ### Endpoint
 
-DELETE /api/storeorder/cancel/{orderId}?warehouseId={warehouseId}
+DELETE /api/storeorder/cancel/`{orderId}`?warehouseId=`{warehouseId}`
 
 ### Parameters
 
@@ -52,7 +50,7 @@ DELETE /api/storeorder/cancel/{orderId}?warehouseId={warehouseId}
 
 | Header | Value | Required | Description |
 |--------|-------|----------|-------------|
-| Authorization | Bearer {token} | Yes | Authentication token |
+| Authorization | Bearer `{token}` | Yes | Authentication token |
 
 ### Example Request
 

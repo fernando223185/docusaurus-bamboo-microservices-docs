@@ -43,6 +43,8 @@ const config: Config = {
     },
   },
 
+
+
   presets: [
     [
       'classic',
@@ -82,10 +84,11 @@ const config: Config = {
     colorMode: {
       respectPrefersColorScheme: true,
     },
+
     navbar: {
-      title: 'My Site',
+      title: 'Bamboo Docs',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'Bamboo Docs Logo',
         src: 'img/logo.svg',
       },
       items: [
@@ -93,7 +96,7 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Documentation',
         },
         // {to: 'blog', label: 'Blog', position: 'left'},
         // {
