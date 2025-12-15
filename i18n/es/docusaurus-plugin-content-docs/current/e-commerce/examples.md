@@ -1,9 +1,11 @@
 ---
 sidebar_position: 5
-title: Examples
+title: Ejemplos
 ---
 
-# ✨ Examples
+# ✨ Ejemplos
+
+## 📋 Ejemplos de Crear Orden
 
 ### C# (HttpClient)
 
@@ -208,4 +210,174 @@ if (curl_errno($ch)) {
 
 curl_close($ch);
 
+```
+
+## ❌ Ejemplos de Cancelar Orden
+
+### C# (HttpClient)
+
+```csharp
+using System.Net.Http;
+using System.Threading.Tasks;
+
+public async Task CancelOrderAsync()
+{
+    var client = new HttpClient();
+    var baseUrl = "https://ecommercestoreorders-fgaxd7axcnezhnbh.westus-01.azurewebsites.net";
+    var orderId = 12345;
+    var warehouseId = 2;
+    var url = $"{baseUrl}/api/storeorder/cancel/{orderId}?warehouseId={warehouseId}";
+
+    // Agregar header de autenticación
+    client.DefaultRequestHeaders.Add("Authorization", "Bearer your-auth-token");
+
+    var response = await client.DeleteAsync(url);
+    var responseString = await response.Content.ReadAsStringAsync();
+
+    if (response.IsSuccessStatusCode)
+    {
+        Console.WriteLine("Orden cancelada exitosamente:");
+        Console.WriteLine(responseString);
+    }
+    else
+    {
+        Console.WriteLine("Error cancelando la orden:");
+        Console.WriteLine(responseString);
+    }
+}
+```
+
+### JavaScript
+
+```javascript
+async function cancelOrder() {
+  const baseUrl = 'https://ecommercestoreorders-fgaxd7axcnezhnbh.westus-01.azurewebsites.net'
+  const orderId = 12345
+  const warehouseId = 2
+  const url = `${baseUrl}/api/storeorder/cancel/${orderId}?warehouseId=${warehouseId}`
+
+  try {
+    const response = await fetch(url, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': 'Bearer your-auth-token',
+        'Content-Type': 'application/json'
+      }
+    })
+
+    if (!response.ok) {
+      const error = await response.json()
+      console.error('Error:', error)
+      return
+    }
+
+    const data = await response.json()
+    console.log('Orden cancelada exitosamente:', data)
+  } catch (error) {
+    console.error('Error de red:', error)
+  }
+}
+
+cancelOrder()
+```
+
+### TypeScript
+
+```typescript
+interface CancelOrderResponse {
+  success: boolean;
+  message: string;
+  data: {
+    orderId: number;
+    warehouseId: number;
+    status: string;
+    cancelledAt: string;
+    reason: string;
+  };
+}
+
+interface ApiErrorResponse {
+  title: string;
+  errors: Record<string, string[]> | string[];
+  status: number;
+}
+
+async function cancelOrder(orderId: number, warehouseId: number): Promise<void> {
+  const baseUrl = "https://ecommercestoreorders-fgaxd7axcnezhnbh.westus-01.azurewebsites.net";
+  const url = `${baseUrl}/api/storeorder/cancel/${orderId}?warehouseId=${warehouseId}`;
+
+  try {
+    const response = await fetch(url, {
+      method: "DELETE",
+      headers: {
+        "Authorization": "Bearer your-auth-token",
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      const errorResult: ApiErrorResponse = await response.json();
+      console.error("Error de API:", errorResult);
+      return;
+    }
+
+    const result: CancelOrderResponse = await response.json();
+    if (result.success) {
+      console.log("Orden cancelada exitosamente:", result.data);
+    } else {
+      console.error("Cancelación falló:", result.message);
+    }
+  } catch (error) {
+    console.error("Error de red:", error);
+  }
+}
+
+// Ejemplo de uso
+cancelOrder(12345, 2);
+```
+
+### PHP (CURL)
+
+```php
+<?php
+
+$baseUrl = "https://ecommercestoreorders-fgaxd7axcnezhnbh.westus-01.azurewebsites.net";
+$orderId = 12345;
+$warehouseId = 2;
+$url = "{$baseUrl}/api/storeorder/cancel/{$orderId}?warehouseId={$warehouseId}";
+
+$authToken = "your-auth-token";
+
+$ch = curl_init($url);
+
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    'Content-Type: application/json',
+    'Authorization: Bearer ' . $authToken
+]);
+
+$response = curl_exec($ch);
+
+if (curl_errno($ch)) {
+    echo 'Error en la petición: ' . curl_error($ch);
+} else {
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    echo "HTTP Code: $httpCode\n";
+    
+    if ($httpCode === 200) {
+        $data = json_decode($response, true);
+        if ($data['success']) {
+            echo "Orden cancelada exitosamente:\n";
+            echo "Order ID: " . $data['data']['orderId'] . "\n";
+            echo "Status: " . $data['data']['status'] . "\n";
+            echo "Cancelada en: " . $data['data']['cancelledAt'] . "\n";
+        }
+    } else {
+        echo "Error: $response\n";
+    }
+}
+
+curl_close($ch);
+?>
 ```

@@ -5,6 +5,8 @@ title: Request Format
 
 # 📤 Request Format
 
+## 📋 Create Order
+
 ### Endpoint
 
 POST /api/StoreSale
@@ -31,4 +33,31 @@ POST /api/StoreSale
     }
   ]
 }
+```
+
+## ❌ Cancel Order
+
+### Endpoint
+
+DELETE /api/storeorder/cancel/{orderId}?warehouseId={warehouseId}
+
+### Parameters
+
+| Parameter | Type | Location | Required | Description |
+|-----------|------|----------|----------|-------------|
+| orderId | int | Path | Yes | The ID of the order to cancel |
+| warehouseId | int | Query | Yes | The warehouse ID associated with the order |
+
+### Headers
+
+| Header | Value | Required | Description |
+|--------|-------|----------|-------------|
+| Authorization | Bearer {token} | Yes | Authentication token |
+
+### Example Request
+
+```http
+DELETE /api/storeorder/cancel/12345?warehouseId=2 HTTP/1.1
+Host: ecommercestoreorders-fgaxd7axcnezhnbh.westus-01.azurewebsites.net
+Authorization: Bearer your-auth-token
 ```

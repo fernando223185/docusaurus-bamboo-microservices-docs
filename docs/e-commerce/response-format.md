@@ -5,6 +5,8 @@ title: Response Format
 
 # 📥 Response Format
 
+## 📋 Create Order Response
+
 ### ✅ Success – HTTP 200 OK
 
 ```json
@@ -50,5 +52,60 @@ Unauthorized: missing or invalid x-functions-key.
     }
   ],
   "message": "Error interno del servidor"
+}
+```
+
+## ❌ Cancel Order Response
+
+### ✅ Success – HTTP 200 OK
+
+```json
+{
+  "success": true,
+  "message": "Orden cancelada exitosamente",
+  "data": {
+    "orderId": 12345,
+    "warehouseId": 2,
+    "status": "Cancelled",
+    "cancelledAt": "2025-12-13T14:30:25.123Z",
+    "reason": "Customer requested cancellation"
+  }
+}
+```
+
+### 🛑 Validation Error – HTTP 400 Bad Request
+
+```json
+{
+  "title": "one-more-validation-errors-occurred",
+  "errors": {
+    "OrderId": [
+      "Order ID must be greater than 0"
+    ],
+    "WarehouseId": [
+      "Warehouse ID is required"
+    ]
+  },
+  "status": 400
+}
+```
+
+### 💥 General Error – HTTP 400 Bad Request
+
+```json
+{
+  "title": "Order not found or cannot be cancelled",
+  "errors": [],
+  "status": 400
+}
+```
+
+### 🚫 Unauthorized – HTTP 401
+
+```json
+{
+  "title": "Unauthorized access",
+  "errors": [],
+  "status": 401
 }
 ```

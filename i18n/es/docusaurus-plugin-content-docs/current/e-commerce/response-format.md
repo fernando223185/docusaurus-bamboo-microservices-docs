@@ -1,11 +1,13 @@
 ---
 sidebar_position: 4
-title: Response Format
+title: Formato de Respuesta
 ---
 
-# 📥 Response Format
+# 📥 Formato de Respuesta
 
-### ✅ Success – HTTP 200 OK
+## 📋 Respuesta de Crear Orden
+
+### ✅ Éxito – HTTP 200 OK
 
 ```json
 {
@@ -50,5 +52,60 @@ Unauthorized: missing or invalid x-functions-key.
     }
   ],
   "message": "Error interno del servidor"
+}
+```
+
+## ❌ Respuesta de Cancelar Orden
+
+### ✅ Éxito – HTTP 200 OK
+
+```json
+{
+  "success": true,
+  "message": "Orden cancelada exitosamente",
+  "data": {
+    "orderId": 12345,
+    "warehouseId": 2,
+    "status": "Cancelled",
+    "cancelledAt": "2025-12-13T14:30:25.123Z",
+    "reason": "Cliente solicitó cancelación"
+  }
+}
+```
+
+### 🛑 Error de Validación – HTTP 400 Bad Request
+
+```json
+{
+  "title": "one-more-validation-errors-occurred",
+  "errors": {
+    "OrderId": [
+      "El ID de la orden debe ser mayor que 0"
+    ],
+    "WarehouseId": [
+      "El ID del almacén es requerido"
+    ]
+  },
+  "status": 400
+}
+```
+
+### 💥 Error General – HTTP 400 Bad Request
+
+```json
+{
+  "title": "Orden no encontrada o no se puede cancelar",
+  "errors": [],
+  "status": 400
+}
+```
+
+### 🚫 No Autorizado – HTTP 401
+
+```json
+{
+  "title": "Acceso no autorizado",
+  "errors": [],
+  "status": 401
 }
 ```
