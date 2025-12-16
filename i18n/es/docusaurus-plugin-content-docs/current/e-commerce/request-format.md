@@ -36,7 +36,7 @@ IDs de almacén disponibles para el campo `WarehouseId`:
 | 1540425 | 80112 | TEMU-U43 |
 | 1540519 | 10401 | E-comerce CDMX Almacen |
 | 1540520 | 10402 | E-comerce GDL Almacen |
-| 1540521 | 10403 | E-comerce AMABLELUZ |
+| 2095021 | 80114 | TEMU-N840 |
 | 2119342 | 80115 | TEMU-GDL |
 
 ### Ejemplo del Cuerpo
