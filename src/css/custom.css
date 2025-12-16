@@ -28,3 +28,35 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+/* Custom HTTP Method Badges */
+.http-method {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 12px;
+  color: white;
+  margin-right: 8px;
+  font-family: var(--ifm-font-family-monospace);
+}
+
+.http-method.post {
+  background-color: #49cc90;
+}
+
+.http-method.get {
+  background-color: #61affe;
+}
+
+.http-method.put {
+  background-color: #fca130;
+}
+
+.http-method.delete {
+  background-color: #f93e3e;
+}
+
+.http-method.patch {
+  background-color: #50e3c2;
+}

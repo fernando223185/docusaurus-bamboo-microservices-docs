@@ -9,7 +9,7 @@ title: Formato de Solicitud
 
 ### Endpoint
 
-POST /api/StoreSale
+<span class="http-method post">POST</span>`/api/StoreSale`
 
 ### Headers
 
@@ -49,7 +49,7 @@ POST /api/StoreSale
 
 ### Endpoint
 
-DELETE /api/storeorder/cancel/`{orderId}`?warehouseId=`{warehouseId}`
+<span class="http-method delete">DELETE</span>`/api/storeorder/cancel/{orderId}?warehouseId={warehouseId}`
 
 ### Parámetros
 
