@@ -13,21 +13,33 @@ POST /api/StoreSale
 
 ### Headers
 
+| Header | Value | Required | Description |
+|--------|-------|----------|-------------|
+| X-API-Key | `{your-api-key}` | Yes | API Key for authentication |
+| Content-Type | application/json | Yes | Request content type |
+
 ### Body Example
 
 ```json
 {
-  "CustomerCode": "COD00011",
-  "CustomerName": "Delta Corporate Inc.",
-  "Remark": "Order requested for the IT department.",
-  "BillDate": "2025-12-01",
-  "OrderDetails": [
+  "customerCode": "CHH2A100706",
+  "customerName": "MEGALUZ S.A. DE C.V.",
+  "remark": "Pedido prueba Ecommerce",
+  "billDate": "2025-11-10T13:45:00",
+  "detail": [
     {
-      "Code": "NET-900",
-      "Name": "Cisco Router RV340",
-      "Price": 5250.99,
-      "Quantity": 1,
-      "WarehouseId": 2
+      "code": "000002",
+      "name": "FREIDORA DE AIRE FDA08V",
+      "price": 550,
+      "quantity": 100,
+      "warehouseId": 1540416
+    },
+    {
+      "code": "000005",
+      "name": "FREIDORA DE AIRE FDA09A",
+      "price": 380,
+      "quantity": 200,
+      "warehouseId": 1540416
     }
   ]
 }
@@ -50,12 +62,13 @@ DELETE /api/storeorder/cancel/`{orderId}`?warehouseId=`{warehouseId}`
 
 | Header | Value | Required | Description |
 |--------|-------|----------|-------------|
-| Authorization | Bearer `{token}` | Yes | Authentication token |
+| X-API-Key | `{your-api-key}` | Yes | API Key for authentication |
+| Content-Type | application/json | Yes | Request content type |
 
 ### Example Request
 
 ```http
 DELETE /api/storeorder/cancel/12345?warehouseId=2 HTTP/1.1
 Host: ecommercestoreorders-fgaxd7axcnezhnbh.westus-01.azurewebsites.net
-Authorization: Bearer your-auth-token
+X-API-Key: your-api-key-here
 ```
