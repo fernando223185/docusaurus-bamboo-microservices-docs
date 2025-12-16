@@ -18,6 +18,27 @@ title: Formato de Solicitud
 | X-API-Key | `{tu-api-key}` | Sí | Clave API para autenticación |
 | Content-Type | application/json | Sí | Tipo de contenido de la solicitud |
 
+## 🚚 Códigos de Tipo de Envío (ShippingType)
+
+Códigos disponibles para el campo `ShippingType`:
+
+| Código | Nombre | Descripción |
+|--------|--------|-------------|
+| CKLX007 | 发货至电商平台 | Enviar mercancía a la plataforma de comercio electrónico |
+| CKLX008 | 代电商平台发货至客户 | Envío al cliente en nombre de la plataforma de comercio electrónico |
+
+## 🏢 IDs de Almacén
+
+IDs de almacén disponibles para el campo `WarehouseId`:
+
+| ID de Almacén | Código | Nombre |
+|---------------|--------|--------|
+| 1540425 | 80112 | TEMU-U43 |
+| 1540519 | 10401 | E-comerce CDMX Almacen |
+| 1540520 | 10402 | E-comerce GDL Almacen |
+| 1540521 | 10403 | E-comerce AMABLELUZ |
+| 2119342 | 80115 | TEMU-GDL |
+
 ### Ejemplo del Cuerpo
 
 ```json
