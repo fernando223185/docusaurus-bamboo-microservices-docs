@@ -15,7 +15,7 @@ This key is provided by the integration team and must be kept secret.
 Add the key as a query parameter in your API request:
 
 ```txt
-https://ecommercestoreorders-fgaxd7axcnezhnbh.westus-01.azurewebsites.net/api/storeorder?code=YOUR_API_KEY
+https://{URL}/api/storeorder?code=YOUR_API_KEY
 ```
 
 Replace `YOUR_API_KEY` with the key provided.
@@ -39,7 +39,7 @@ Content-Type: application/json
 ## Example Request
 
 ```bash
-curl -X POST "https://ecommercestoreorders-fgaxd7axcnezhnbh.westus-01.azurewebsites.net/api/storeorder?code=YOUR_API_KEY" \
+curl -X POST "https://{URL}/api/storeorder?code=YOUR_API_KEY" \
 -H "Content-Type: application/json" \
 -d '{"Folio":"A123","Quantity":10,"Subtotal":100.0}'
 ```
@@ -48,7 +48,7 @@ Or using **JavaScript fetch**:
 
 ```javascript
 fetch(
-  'https://ecommercestoreorders-fgaxd7axcnezhnbh.westus-01.azurewebsites.net/api/storeorder',
+  'https://{URL}/api/storeorder',
   {
     method: 'POST',
     headers: {

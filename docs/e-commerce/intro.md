@@ -22,7 +22,7 @@ This API serves as a bridge between external e-commerce channels and Bamboo ERP�
 ## 🌐 Base URL
 
 ```txt
-https://ecommercestoreorders-fgaxd7axcnezhnbh.westus-01.azurewebsites.net/api/storeorder
+https://{URL}/api/
 ```
 
 ## 🌐 Swagger UI
