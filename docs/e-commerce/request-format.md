@@ -9,7 +9,7 @@ title: Request Format
 
 ### Endpoint
 
-<span class="http-method post">POST</span>`/api/StoreSale`
+<span class="http-method post">POST</span>`/api/Orders`
 
 ### Headers
 
@@ -72,7 +72,7 @@ Available warehouse IDs for the `WarehouseId` field:
 
 ### Endpoint
 
-<span class="http-method delete">DELETE</span>`/api/storeorder/cancel/{orderId}?warehouseId={warehouseId}`
+<span class="http-method delete">DELETE</span>`/api/Orders/cancel/{orderId}?warehouseId={warehouseId}`
 
 ### Parameters
 

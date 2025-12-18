@@ -18,7 +18,7 @@ using Newtonsoft.Json;
 public async Task CallApiAsync()
 {
     var client = new HttpClient();
-    var url = "http://bambootesting.ddns.net:5000/api/StoreSale";
+    var url = "http://bambootesting.ddns.net:5000/api/Orders";
 
     var payload = new
     {
@@ -62,7 +62,7 @@ public async Task CallApiAsync()
 
 ```javascript
 async function callAzureFunction() {
-  const url = 'http://bambootesting.ddns.net:5000/api/StoreSale'
+  const url = 'http://bambootesting.ddns.net:5000/api/Orders'
 
   const payload = {
     CustomerCode: 'CHH2A100706',
@@ -140,7 +140,7 @@ interface ApiResponse<T> {
 }
 
 async function callAzureFunction(payload: SalePayload): Promise<void> {
-  const url = "http://bambootesting.ddns.net:5000/api/StoreSale";
+  const url = "http://bambootesting.ddns.net:5000/api/Orders";
 
   const response = await fetch(url, {
     method: "POST",
@@ -195,7 +195,7 @@ callAzureFunction(payload);
 ```php
 <?php
 
-$url = "http://bambootesting.ddns.net:5000/api/StoreSale";
+$url = "http://bambootesting.ddns.net:5000/api/Orders";
 $apiKey = "your-api-key-here";
 
 $data = [

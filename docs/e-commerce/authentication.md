@@ -31,7 +31,7 @@ Content-Type: application/json
 ## Example Request
 
 ```bash
-curl -X POST "http://bambootesting.ddns.net:5000/api/StoreSale" \
+curl -X POST "http://bambootesting.ddns.net:5000/api/Orders" \
 -H "Content-Type: application/json" \
 -H "X-API-Key: YOUR_API_KEY_HERE" \
 -d '{
@@ -64,7 +64,7 @@ Or using **JavaScript fetch**:
 
 ```javascript
 fetch(
-  'http://bambootesting.ddns.net:5000/api/StoreSale',
+  'http://bambootesting.ddns.net:5000/api/Orders',
   {
     method: 'POST',
     headers: {
