@@ -15,7 +15,7 @@ This key is provided by the integration team and must be kept secret.
 Send the API key in the request header:
 
 ```http
-POST /api/StoreSale HTTP/1.1
+POST /api/Orders HTTP/1.1
 Host: bambootesting.ddns.net:5000
 X-API-Key: YOUR_API_KEY
 Content-Type: application/json
