@@ -5,57 +5,96 @@ title: Authentication
 
 # 🔐 Authentication
 
-All API requests to the orders from e-Commerce require **authentication** using an **Azure Function Key**.
+All API requests to the orders from e-Commerce require **authentication** using an **API Key**.
 This key is provided by the integration team and must be kept secret.
 
-## Methods to send the key
+## How to send the API Key
 
-### 1️⃣ Query Parameter
+### Request Header
 
-Add the key as a query parameter in your API request:
-
-```txt
-https://{URL}/api/storeorder?code=YOUR_API_KEY
-```
-
-Replace `YOUR_API_KEY` with the key provided.
-
-### 2️⃣ Request Header
-
-Alternatively, you can send it in the request header:
+Send the API key in the request header:
 
 ```http
-POST /api/storeorder HTTP/1.1
-Host: mercestoreorders-fgaxd7axcnezhnbh.westus-01.azurewebsites.net
-x-functions-key: YOUR_API_KEY
+POST /api/StoreSale HTTP/1.1
+Host: bambootesting.ddns.net:5000
+X-API-Key: YOUR_API_KEY
 Content-Type: application/json
 ```
 
 ### Notes
 
+- **The `X-API-Key` header is required for EVERY request** to the API.
 - Requests without a valid key will return **HTTP 401 Unauthorized**.
 - Do **not share** your key publicly. It grants full access to the API.
+- The API expects **PascalCase** field names in the request body (e.g., `CustomerCode`, `ShippingType`, `Detail`).
 
 ## Example Request
 
 ```bash
-curl -X POST "https://{URL}/api/storeorder?code=YOUR_API_KEY" \
+curl -X POST "http://bambootesting.ddns.net:5000/api/StoreSale" \
 -H "Content-Type: application/json" \
--d '{"Folio":"A123","Quantity":10,"Subtotal":100.0}'
+-H "X-API-Key: YOUR_API_KEY_HERE" \
+-d '{
+  "CustomerCode": "CHH2A100706",
+  "CustomerName": "MEGALUZ S.A. DE C.V.",
+  "Remark": "test api documentation",
+  "BillDate": "16/12/2025",
+  "ShippingType": "CKLX007",
+  "Detail": [
+    {
+      "Code": "000002",
+      "Name": "FREIDORA DE AIRE FDA08V",
+      "Price": 550,
+      "Quantity": 1,
+      "WarehouseId": 1540416
+    }
+  ],
+  "Guides": [
+    {
+      "Url": "https://example.com/guide1"
+    },
+    {
+      "Url": "https://example.com/guide2"
+    }
+  ]
+}'
 ```
 
 Or using **JavaScript fetch**:
 
 ```javascript
 fetch(
-  'https://{URL}/api/storeorder',
+  'http://bambootesting.ddns.net:5000/api/StoreSale',
   {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'x-functions-key': 'YOUR_API_KEY',
+      'X-API-Key': 'YOUR_API_KEY_HERE',
     },
-    body: JSON.stringify({ Folio: 'A123', Quantity: 10, Subtotal: 100.0 }),
+    body: JSON.stringify({
+      CustomerCode: 'CHH2A100706',
+      CustomerName: 'MEGALUZ S.A. DE C.V.',
+      Remark: 'test api documentation',
+      BillDate: '16/12/2025',
+      ShippingType: 'CKLX007',
+      Detail: [
+        {
+          Code: '000002',
+          Name: 'FREIDORA DE AIRE FDA08V',
+          Price: 550,
+          Quantity: 1,
+          WarehouseId: 1540416
+        }
+      ],
+      Guides: [
+        {
+          Url: 'https://example.com/guide1'
+        },
+        {
+          Url: 'https://example.com/guide2'
+        }
+      ]
+    }),
   }
 )
   .then((res) => res.json())
@@ -72,11 +111,11 @@ fetch(
 
 ## FAQs
 
-**Q1: Where do I get the Azure Function Key?**
-It is provided by the integration team. Keep it secure.
+**Q1: Where do I get the API Key?**
+It is provided by the integration team. Make sure to store it securely and avoid exposing it in logs, URLs or public repositories.
 
-**Q2: Can I send the key both in header and query at the same time?**
-Yes, but only one is necessary. Sending both does not change behavior.
+**Q2: Is the X-API-Key header the only way to authenticate?**
+Yes, the X-API-Key header is the standard and only supported method for API authentication.
 
 **Q3: What happens if the key is invalid?**
 You will receive a **401 Unauthorized** response and the request will not be processed.

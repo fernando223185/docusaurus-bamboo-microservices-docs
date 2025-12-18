@@ -91,7 +91,7 @@ Available warehouse IDs for the `WarehouseId` field:
 ### Example Request
 
 ```http
-DELETE /api/storeorder/cancel/12345?warehouseId=2 HTTP/1.1
+DELETE /api/Orders/cancel/12345?warehouseId=2 HTTP/1.1
 Host: ecommercestoreorders-fgaxd7axcnezhnbh.westus-01.azurewebsites.net
 X-API-Key: your-api-key-here
 ```

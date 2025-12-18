@@ -5,57 +5,96 @@ title: Autenticación
 
 # 🔐 Autenticación
 
-Todas las solicitudes a la API de órdenes provenientes de e-Commerce requieren **autenticación** mediante una **Azure Function Key**.
+Todas las solicitudes a la API de órdenes provenientes de e-Commerce requieren **autenticación** mediante una **clave API**.
 Esta clave es proporcionada por el equipo de integración y debe mantenerse en secreto.
 
-## Métodos para enviar la clave
+## Cómo enviar la clave API
 
-### 1️⃣ Parámetro de consulta (Query Parameter)
+### Request Header
 
-Agrega la clave como un parámetro de consulta en tu solicitud a la API:
-
-```txt
-https://ecommercestoreorders-fgaxd7axcnezhnbh.westus-01.azurewebsites.net/api/storeorder?code=YOUR_API_KEY
-```
-
-Replace `YOUR_API_KEY` with the key provided.
-
-### 2️⃣ Request Header
-
-Alternativamente, puedes enviarla en el encabezado de la solicitud (request header):
+Envía la clave API en el encabezado de la solicitud:
 
 ```http
-POST /api/storeorder HTTP/1.1
-Host: mercestoreorders-fgaxd7axcnezhnbh.westus-01.azurewebsites.net
-x-functions-key: YOUR_API_KEY
+POST /api/StoreSale HTTP/1.1
+Host: bambootesting.ddns.net:5000
+X-API-Key: YOUR_API_KEY
 Content-Type: application/json
 ```
 
 ### Notas
 
+- **El header `X-API-Key` es requerido en CADA petición** a la API.
 - Las solicitudes sin una clave válida devolverán **HTTP 401 Unauthorized**.
 - **No compartas** tu clave públicamente. Esta otorga acceso completo a la API.
+- La API espera nombres de campos en **PascalCase** en el body (ej. `CustomerCode`, `ShippingType`, `Detail`).
 
 ## Ejemplo de Solicitud
 
 ```bash
-curl -X POST "https://ecommercestoreorders-fgaxd7axcnezhnbh.westus-01.azurewebsites.net/api/storeorder?code=YOUR_API_KEY" \
+curl -X POST "http://bambootesting.ddns.net:5000/api/Orders" \
 -H "Content-Type: application/json" \
--d '{"Folio":"A123","Quantity":10,"Subtotal":100.0}'
+-H "X-API-Key: YOUR_API_KEY_HERE" \
+-d '{
+  "CustomerCode": "CHH2A100706",
+  "CustomerName": "MEGALUZ S.A. DE C.V.",
+  "Remark": "prueba de documentaci\u00f3n API",
+  "BillDate": "16/12/2025",
+  "ShippingType": "CKLX007",
+  "Detail": [
+    {
+      "Code": "000002",
+      "Name": "FREIDORA DE AIRE FDA08V",
+      "Price": 550,
+      "Quantity": 1,
+      "WarehouseId": 1540416
+    }
+  ],
+  "Guides": [
+    {
+      "Url": "https://example.com/guia1"
+    },
+    {
+      "Url": "https://example.com/guia2"
+    }
+  ]
+}'
 ```
 
 O Usando **JavaScript fetch**:
 
 ```javascript
 fetch(
-  'https://ecommercestoreorders-fgaxd7axcnezhnbh.westus-01.azurewebsites.net/api/storeorder',
+  'http://bambootesting.ddns.net:5000/api/Orders',
   {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'x-functions-key': 'YOUR_API_KEY',
+      'X-API-Key': 'YOUR_API_KEY_HERE',
     },
-    body: JSON.stringify({ Folio: 'A123', Quantity: 10, Subtotal: 100.0 }),
+    body: JSON.stringify({
+      CustomerCode: 'CHH2A100706',
+      CustomerName: 'MEGALUZ S.A. DE C.V.',
+      Remark: 'prueba de documentación API',
+      BillDate: '16/12/2025',
+      ShippingType: 'CKLX007',
+      Detail: [
+        {
+          Code: '000002',
+          Name: 'FREIDORA DE AIRE FDA08V',
+          Price: 550,
+          Quantity: 1,
+          WarehouseId: 1540416
+        }
+      ],
+      Guides: [
+        {
+          Url: 'https://example.com/guia1'
+        },
+        {
+          Url: 'https://example.com/guia2'
+        }
+      ]
+    }),
   }
 )
   .then((res) => res.json())
@@ -72,12 +111,11 @@ fetch(
 
 ## FAQs
 
-**P1: ¿Dónde obtengo la Azure Function Key?**
+**P1: ¿Dónde obtengo la clave API?**
 La clave es proporcionada por el equipo de integración. Asegúrate de almacenarla de forma segura y evita exponerla en logs, URLs o repositorios públicos.
 
-**P2: ¿Puedo enviar la clave tanto en el header como en el query al mismo tiempo?**
-Sí. Puedes enviar la clave ya sea en el header o en el query string.
-Enviar ambas es válido, pero no cambia el comportamiento: con una sola es suficiente.
+**P2: ¿Es el header X-API-Key la única forma de autenticarse?**
+Sí, el header X-API-Key es el método estándar y único soportado para la autenticación de la API.
 
 **P3: ¿Qué ocurre si la clave es inválida?**
 Si la clave enviada es incorrecta, falta, está expirada o fue revocada, la API responderá con 401 Unauthorized, y la solicitud no será procesada.

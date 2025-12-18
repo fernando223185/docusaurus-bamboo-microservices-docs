@@ -18,32 +18,38 @@ using Newtonsoft.Json;
 public async Task CallApiAsync()
 {
     var client = new HttpClient();
-    var url = "https://tuapp.azurewebsites.net/api/sales";
+    var url = "http://bambootesting.ddns.net:5000/api/StoreSale";
 
     var payload = new
     {
-        CustomerCode: "COD00011",
-        CustomerName: "Corporativo Delta SA de CV",
-        Remark: "Pedido solicitado para área de TI.",
-        BillDate: "2025-12-01",
-        OrderDetails: [
+        CustomerCode = "CHH2A100706",
+        CustomerName = "MEGALUZ S.A. DE C.V.",
+        Remark = "test order",
+        BillDate = "16/12/2025",
+        ShippingType = "CKLX007",
+        Detail = new[]
+        {
+            new
             {
-                ProductId: 87,
-                Code: "NET-900",
-                Name: "Router Cisco RV340",
-                Price: 5250.99,
-                Quantity: 1,
-                Comentaries:"Hello World" ,
-                WarehouseId: 2
+                Code = "000002",
+                Name = "FREIDORA DE AIRE FDA08V",
+                Price = 550,
+                Quantity = 1,
+                WarehouseId = 1540425
             }
-        ]
+        },
+        Guides = new[]
+        {
+            new { Url = "https://example.com/guide1" },
+            new { Url = "https://example.com/guide2" }
+        }
     };
 
     var json = JsonConvert.SerializeObject(payload);
     var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-    // Agregar la clave en el header
-    client.DefaultRequestHeaders.Add("x-functions-key", "miClaveSecreta123");
+    // Agregar la clave API en el header
+    client.DefaultRequestHeaders.Add("X-API-Key", "your-api-key-here");
 
     var response = await client.PostAsync(url, content);
     var responseString = await response.Content.ReadAsStringAsync();
@@ -56,31 +62,34 @@ public async Task CallApiAsync()
 
 ```javascript
 async function callAzureFunction() {
-  const url = 'https://tuapp.azurewebsites.net/api/sales'
+  const url = 'http://bambootesting.ddns.net:5000/api/StoreSale'
 
   const payload = {
-    CustomerCode: 'COD00011',
-    CustomerName: 'Corporativo Delta SA de CV',
-    Remark: 'Pedido solicitado para área de TI.',
-    BillDate: '2025-12-01',
-    OrderDetails: [
+    CustomerCode: 'CHH2A100706',
+    CustomerName: 'MEGALUZ S.A. DE C.V.',
+    Remark: 'test order',
+    BillDate: '16/12/2025',
+    ShippingType: 'CKLX007',
+    Detail: [
       {
-        ProductId: 87,
-        Code: 'NET-900',
-        Name: 'Router Cisco RV340',
-        Price: 5250.99,
+        Code: '000002',
+        Name: 'FREIDORA DE AIRE FDA08V',
+        Price: 550,
         Quantity: 1,
-        Comentaries: 'Hello World',
-        WarehouseId: 2,
+        WarehouseId: 1540425,
       },
     ],
+    Guides: [
+      { Url: 'https://example.com/guide1' },
+      { Url: 'https://example.com/guide2' }
+    ]
   }
 
   const response = await fetch(url, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'x-functions-key': 'miClaveSecreta123',
+      'X-API-Key': 'your-api-key-here',
     },
     body: JSON.stringify(payload),
   })
@@ -101,10 +110,26 @@ callAzureFunction()
 ### TypeScript
 
 ```typeScript
-interface SalePayload {
-  Folio: string;
+interface DetailItem {
+  Code: string;
+  Name: string;
+  Price: number;
   Quantity: number;
-  Subtotal: number;
+  WarehouseId: number;
+}
+
+interface GuideItem {
+  Url: string;
+}
+
+interface SalePayload {
+  CustomerCode: string;
+  CustomerName: string;
+  Remark: string;
+  BillDate: string;
+  ShippingType: string;
+  Detail: DetailItem[];
+  Guides: GuideItem[];
 }
 
 interface ApiResponse<T> {
@@ -115,13 +140,13 @@ interface ApiResponse<T> {
 }
 
 async function callAzureFunction(payload: SalePayload): Promise<void> {
-  const url = "https://tuapp.azurewebsites.net/api/sales";
+  const url = "http://bambootesting.ddns.net:5000/api/StoreSale";
 
   const response = await fetch(url, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "x-functions-key": "miClaveSecreta123",
+      "X-API-Key": "your-api-key-here",
     },
     body: JSON.stringify(payload),
   });
@@ -141,20 +166,23 @@ async function callAzureFunction(payload: SalePayload): Promise<void> {
 }
 
 const payload: SalePayload = {
-    CustomerCode: "COD00011",
-    CustomerName: "Corporativo Delta SA de CV",
-    Remark: "Pedido solicitado para área de TI.",
-    BillDate: "2025-12-01",
-    OrderDetails: [
+    CustomerCode: "CHH2A100706",
+    CustomerName: "MEGALUZ S.A. DE C.V.",
+    Remark: "test order",
+    BillDate: "16/12/2025",
+    ShippingType: "CKLX007",
+    Detail: [
         {
-            ProductId: 87,
-            Code: "NET-900",
-            Name: "Router Cisco RV340",
-            Price: 5250.99,
+            Code: "000002",
+            Name: "FREIDORA DE AIRE FDA08V",
+            Price: 550,
             Quantity: 1,
-            Comentaries:"Hello World" ,
-            WarehouseId: 2
+            WarehouseId: 1540425
         }
+    ],
+    Guides: [
+        { Url: "https://example.com/guide1" },
+        { Url: "https://example.com/guide2" }
     ]
 };
 
@@ -167,22 +195,27 @@ callAzureFunction(payload);
 ```php
 <?php
 
-$url = "https://tuapp.azurewebsites.net/api/sales";
-$functionKey = "miClaveSecreta123";
+$url = "http://bambootesting.ddns.net:5000/api/StoreSale";
+$apiKey = "your-api-key-here";
 
 $data = [
-    "CustomerCode" => "COD00011",
-    "CustomerName" => "Corporativo Delta SA de CV",
-    "Remark" => "Pedido solicitado para área de TI.",
-    "BillDate" => "2025-12-01",
-    "OrderDetails"=> [
-        "ProductId"=> 87,
-        "Code"=> "NET-900",
-        "Name"=> "Router Cisco RV340",
-        "Price"=> 5250.99,
-        "Quantity"=> 1,
-        "Comentaries"=>"Hello World" ,
-        "WarehouseId"=> 2
+    "CustomerCode" => "CHH2A100706",
+    "CustomerName" => "MEGALUZ S.A. DE C.V.",
+    "Remark" => "test order",
+    "BillDate" => "16/12/2025",
+    "ShippingType" => "CKLX007",
+    "Detail" => [
+        [
+            "Code" => "000002",
+            "Name" => "FREIDORA DE AIRE FDA08V",
+            "Price" => 550,
+            "Quantity" => 1,
+            "WarehouseId" => 1540425
+        ]
+    ],
+    "Guides" => [
+        ["Url" => "https://example.com/guide1"],
+        ["Url" => "https://example.com/guide2"]
     ]
 ];
 
@@ -194,7 +227,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, [
     'Content-Type: application/json',
-    'x-functions-key: ' . $functionKey
+    'X-API-Key: ' . $apiKey
 ]);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
 
@@ -223,13 +256,13 @@ using System.Threading.Tasks;
 public async Task CancelOrderAsync()
 {
     var client = new HttpClient();
-    var baseUrl = "https://ecommercestoreorders-fgaxd7axcnezhnbh.westus-01.azurewebsites.net";
+    var baseUrl = "http://bambootesting.ddns.net:5000";
     var orderId = 12345;
     var warehouseId = 2;
     var url = $"{baseUrl}/api/storeorder/cancel/{orderId}?warehouseId={warehouseId}";
 
-    // Add authentication header
-    client.DefaultRequestHeaders.Add("Authorization", "Bearer your-auth-token");
+    // Add API Key header
+    client.DefaultRequestHeaders.Add("X-API-Key", "your-api-key-here");
 
     var response = await client.DeleteAsync(url);
     var responseString = await response.Content.ReadAsStringAsync();
@@ -251,7 +284,7 @@ public async Task CancelOrderAsync()
 
 ```javascript
 async function cancelOrder() {
-  const baseUrl = 'https://ecommercestoreorders-fgaxd7axcnezhnbh.westus-01.azurewebsites.net'
+  const baseUrl = 'http://bambootesting.ddns.net:5000'
   const orderId = 12345
   const warehouseId = 2
   const url = `${baseUrl}/api/storeorder/cancel/${orderId}?warehouseId=${warehouseId}`
@@ -260,7 +293,7 @@ async function cancelOrder() {
     const response = await fetch(url, {
       method: 'DELETE',
       headers: {
-        'Authorization': 'Bearer your-auth-token',
+        'X-API-Key': 'your-api-key-here',
         'Content-Type': 'application/json'
       }
     })
@@ -303,14 +336,14 @@ interface ApiErrorResponse {
 }
 
 async function cancelOrder(orderId: number, warehouseId: number): Promise<void> {
-  const baseUrl = "https://ecommercestoreorders-fgaxd7axcnezhnbh.westus-01.azurewebsites.net";
+  const baseUrl = "http://bambootesting.ddns.net:5000";
   const url = `${baseUrl}/api/storeorder/cancel/${orderId}?warehouseId=${warehouseId}`;
 
   try {
     const response = await fetch(url, {
       method: "DELETE",
       headers: {
-        "Authorization": "Bearer your-auth-token",
+        "X-API-Key": "your-api-key-here",
         "Content-Type": "application/json",
       },
     });
@@ -341,12 +374,12 @@ cancelOrder(12345, 2);
 ```php
 <?php
 
-$baseUrl = "https://ecommercestoreorders-fgaxd7axcnezhnbh.westus-01.azurewebsites.net";
+$baseUrl = "http://bambootesting.ddns.net:5000";
 $orderId = 12345;
 $warehouseId = 2;
 $url = "{$baseUrl}/api/storeorder/cancel/{$orderId}?warehouseId={$warehouseId}";
 
-$authToken = "your-auth-token";
+$apiKey = "your-api-key-here";
 
 $ch = curl_init($url);
 
@@ -354,7 +387,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
 curl_setopt($ch, CURLOPT_HTTPHEADER, [
     'Content-Type: application/json',
-    'Authorization: Bearer ' . $authToken
+    'X-API-Key: ' . $apiKey
 ]);
 
 $response = curl_exec($ch);
