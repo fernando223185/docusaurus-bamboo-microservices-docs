@@ -15,7 +15,7 @@ Esta clave es proporcionada por el equipo de integración y debe mantenerse en s
 Envía la clave API en el encabezado de la solicitud:
 
 ```http
-POST /api/StoreSale HTTP/1.1
+POST /api/Orders HTTP/1.1
 Host: bambootesting.ddns.net:5000
 X-API-Key: YOUR_API_KEY
 Content-Type: application/json
