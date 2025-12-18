@@ -18,6 +18,10 @@ title: Request Format
 | X-API-Key | `{your-api-key}` | Yes | API Key for authentication |
 | Content-Type | application/json | Yes | Request content type |
 
+### Required Fields
+
+- **`externalId`**: External reference ID from your system (required). This allows you to send your own sale folio/reference number.
+
 ## 🚚 ShippingType Codes
 
 Available codes for the `ShippingType` field:
@@ -45,9 +49,10 @@ Available warehouse IDs for the `WarehouseId` field:
 {
   "CustomerCode": "CHH2A100706",
   "CustomerName": "MEGALUZ S.A. DE C.V.",
-  "Remark": "string",
+  "Remark": "test nito",
   "BillDate": "16/12/2025",
   "ShippingType": "0001",
+  "externalId": "TCSQ20251218405",
   "Detail": [
     {
       "Code": "000002",

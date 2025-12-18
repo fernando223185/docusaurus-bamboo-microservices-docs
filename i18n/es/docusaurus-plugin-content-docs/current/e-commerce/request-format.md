@@ -18,6 +18,10 @@ title: Formato de Solicitud
 | X-API-Key | `{tu-api-key}` | Sí | Clave API para autenticación |
 | Content-Type | application/json | Sí | Tipo de contenido de la solicitud |
 
+### Campos Requeridos
+
+- **`externalId`**: ID de referencia externa de tu sistema (requerido). Esto te permite enviar tu propio folio/número de referencia de venta.
+
 ## 🚚 Códigos de Tipo de Envío (ShippingType)
 
 Códigos disponibles para el campo `ShippingType`:
@@ -43,11 +47,13 @@ IDs de almacén disponibles para el campo `WarehouseId`:
 
 ```json
 {
-  "customerCode": "CHH2A100706",
-  "customerName": "MEGALUZ S.A. DE C.V.",
-  "remark": "Pedido prueba Ecommerce",
-  "billDate": "2025-11-10T13:45:00",
-  "detail": [
+  "CustomerCode": "CHH2A100706",
+  "CustomerName": "MEGALUZ S.A. DE C.V.",
+  "Remark": "test nito",
+  "BillDate": "16/12/2025",
+  "ShippingType": "0001",
+  "externalId": "TCSQ20251218405",
+  "Detail": [
     {
       "code": "000002",
       "name": "FREIDORA DE AIRE FDA08V",

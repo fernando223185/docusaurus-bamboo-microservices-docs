@@ -39,7 +39,8 @@ curl -X POST "http://bambootesting.ddns.net:5000/api/Orders" \
   "CustomerName": "MEGALUZ S.A. DE C.V.",
   "Remark": "prueba de documentaci\u00f3n API",
   "BillDate": "16/12/2025",
-  "ShippingType": "CKLX007",
+  "ShippingType": "0001",
+  "externalId": "TCSQ20251218405",
   "Detail": [
     {
       "Code": "000002",
@@ -74,9 +75,10 @@ fetch(
     body: JSON.stringify({
       CustomerCode: 'CHH2A100706',
       CustomerName: 'MEGALUZ S.A. DE C.V.',
-      Remark: 'prueba de documentación API',
+      Remark: 'prueba de documentaci\u00f3n API',
       BillDate: '16/12/2025',
-      ShippingType: 'CKLX007',
+      ShippingType: '0001',
+      externalId: 'TCSQ20251218405',
       Detail: [
         {
           Code: '000002',
@@ -88,10 +90,10 @@ fetch(
       ],
       Guides: [
         {
-          Url: 'https://example.com/guia1'
+          Url: 'https://translate.google.com.mx/?hl=es&sl=es&tl=en&text=guia&op=translate'
         },
         {
-          Url: 'https://example.com/guia2'
+          Url: 'https://translate.google.com.mx/?hl=es&sl=es&tl=en&text=guia&op=translate'
         }
       ]
     }),

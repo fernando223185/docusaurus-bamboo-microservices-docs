@@ -26,7 +26,8 @@ public async Task CallApiAsync()
         CustomerName = "MEGALUZ S.A. DE C.V.",
         Remark = "test order",
         BillDate = "16/12/2025",
-        ShippingType = "CKLX007",
+        ShippingType = "0001",
+        externalId = "TCSQ20251218405",
         Detail = new[]
         {
             new
@@ -40,8 +41,8 @@ public async Task CallApiAsync()
         },
         Guides = new[]
         {
-            new { Url = "https://example.com/guide1" },
-            new { Url = "https://example.com/guide2" }
+            new { Url = "https://translate.google.com.mx/?hl=es&sl=es&tl=en&text=guia&op=translate" },
+            new { Url = "https://translate.google.com.mx/?hl=es&sl=es&tl=en&text=guia&op=translate" }
         }
     };
 
@@ -69,7 +70,8 @@ async function callAzureFunction() {
     CustomerName: 'MEGALUZ S.A. DE C.V.',
     Remark: 'test order',
     BillDate: '16/12/2025',
-    ShippingType: 'CKLX007',
+    ShippingType: '0001',
+    externalId: 'TCSQ20251218405',
     Detail: [
       {
         Code: '000002',
@@ -80,8 +82,8 @@ async function callAzureFunction() {
       },
     ],
     Guides: [
-      { Url: 'https://example.com/guide1' },
-      { Url: 'https://example.com/guide2' }
+      { Url: 'https://translate.google.com.mx/?hl=es&sl=es&tl=en&text=guia&op=translate' },
+      { Url: 'https://translate.google.com.mx/?hl=es&sl=es&tl=en&text=guia&op=translate' }
     ]
   }
 
@@ -128,6 +130,7 @@ interface SalePayload {
   Remark: string;
   BillDate: string;
   ShippingType: string;
+  externalId: string;
   Detail: DetailItem[];
   Guides: GuideItem[];
 }
@@ -170,7 +173,8 @@ const payload: SalePayload = {
     CustomerName: "MEGALUZ S.A. DE C.V.",
     Remark: "test order",
     BillDate: "16/12/2025",
-    ShippingType: "CKLX007",
+    ShippingType: "0001",
+    externalId: "TCSQ20251218405",
     Detail: [
         {
             Code: "000002",
@@ -181,8 +185,8 @@ const payload: SalePayload = {
         }
     ],
     Guides: [
-        { Url: "https://example.com/guide1" },
-        { Url: "https://example.com/guide2" }
+        { Url: "https://translate.google.com.mx/?hl=es&sl=es&tl=en&text=guia&op=translate" },
+        { Url: "https://translate.google.com.mx/?hl=es&sl=es&tl=en&text=guia&op=translate" }
     ]
 };
 
@@ -203,7 +207,8 @@ $data = [
     "CustomerName" => "MEGALUZ S.A. DE C.V.",
     "Remark" => "test order",
     "BillDate" => "16/12/2025",
-    "ShippingType" => "CKLX007",
+    "ShippingType" => "0001",
+    "externalId" => "TCSQ20251218405",
     "Detail" => [
         [
             "Code" => "000002",
@@ -214,8 +219,8 @@ $data = [
         ]
     ],
     "Guides" => [
-        ["Url" => "https://example.com/guide1"],
-        ["Url" => "https://example.com/guide2"]
+        ["Url" => "https://translate.google.com.mx/?hl=es&sl=es&tl=en&text=guia&op=translate"],
+        ["Url" => "https://translate.google.com.mx/?hl=es&sl=es&tl=en&text=guia&op=translate"]
     ]
 ];
 
