@@ -1,4 +1,4 @@
-openapi: 3.0.3
+﻿openapi: 3.0.3
 info:
   title: Bamboo Cloud Services API
   description: |
@@ -38,18 +38,18 @@ paths:
             schema:
               $ref: '#/components/schemas/CreateOrderRequest'
             example:
-              customerCode: "CHH2A100706"
-              customerName: "MEGALUZ S.A. DE C.V."
-              remark: "Pedido prueba Ecommerce"
-              billDate: "2025-11-10T13:45:00"
+              customerCode: "CUST001"
+              customerName: "Tech Solutions Inc."
+              remark: "Sample ecommerce order"
+              billDate: "2026-01-15T10:30:00"
               detail:
-                - code: "000002"
-                  name: "FREIDORA DE AIRE FDA08V"
+                - code: "PROD001"
+                  name: "Wireless Mouse"
                   price: 550
                   quantity: 100
                   warehouseId: 1540416
-                - code: "000005"
-                  name: "FREIDORA DE AIRE FDA09A"
+                - code: "PROD002"
+                  name: "USB-C Cable 2m"
                   price: 380
                   quantity: 200
                   warehouseId: 1540416
@@ -120,20 +120,20 @@ components:
         customerCode:
           type: string
           description: Unique customer code
-          example: "CHH2A100706"
+          example: "CUST001"
         customerName:
           type: string
           description: Customer company name
-          example: "MEGALUZ S.A. DE C.V."
+          example: "Tech Solutions Inc."
         remark:
           type: string
           description: Additional notes or remarks for the order
-          example: "Pedido prueba Ecommerce"
+          example: "Sample ecommerce order"
         billDate:
           type: string
           format: date-time
           description: Date and time of the bill
-          example: "2025-11-10T13:45:00"
+          example: "2026-01-15T10:30:00"
         detail:
           type: array
           items:
@@ -151,11 +151,11 @@ components:
         code:
           type: string
           description: Product code
-          example: "000002"
+          example: "PROD001"
         name:
           type: string
           description: Product name
-          example: "FREIDORA DE AIRE FDA08V"
+          example: "Wireless Mouse"
         price:
           type: number
           format: decimal

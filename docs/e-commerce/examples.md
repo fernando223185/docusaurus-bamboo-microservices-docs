@@ -22,27 +22,41 @@ public async Task CallApiAsync()
 
     var payload = new
     {
-        CustomerCode = "CHH2A100706",
-        CustomerName = "MEGALUZ S.A. DE C.V.",
-        Remark = "test order",
-        BillDate = "16/12/2025",
-        ShippingType = "0001",
-        externalId = "TCSQ20251218405",
-        Detail = new[]
+        customerCode = "CUST001",
+        customerName = "Tech Solutions Inc.",
+        remark = "Sample ecommerce order",
+        billDate = "2026-01-15T10:30:00",
+        ShippingType = "CKLX008",
+        externalId = "ORD-2026-001",
+        detail = new[]
         {
             new
             {
-                Code = "000002",
-                Name = "FREIDORA DE AIRE FDA08V",
-                Price = 550,
-                Quantity = 1,
-                WarehouseId = 1540425
+                code = "PROD001",
+                name = "Wireless Mouse",
+                price = 29.99,
+                quantity = 5,
+                warehouseId = 1540519,
+                remark = "Standard delivery"
+            },
+            new
+            {
+                code = "PROD002",
+                name = "USB-C Cable 2m",
+                price = 12.50,
+                quantity = 10,
+                warehouseId = 1540519,
+                remark = "Express shipping"
+            },
+            new
+            {
+                code = "PROD003",
+                name = "Laptop Stand",
+                price = 45.00,
+                quantity = 3,
+                warehouseId = 1540520,
+                remark = "Gift wrap requested"
             }
-        },
-        Guides = new[]
-        {
-            new { Url = "https://translate.google.com.mx/?hl=es&sl=es&tl=en&text=guia&op=translate" },
-            new { Url = "https://translate.google.com.mx/?hl=es&sl=es&tl=en&text=guia&op=translate" }
         }
     };
 
@@ -66,25 +80,38 @@ async function callAzureFunction() {
   const url = 'http://bambootesting.ddns.net:5000/api/Orders'
 
   const payload = {
-    CustomerCode: 'CHH2A100706',
-    CustomerName: 'MEGALUZ S.A. DE C.V.',
-    Remark: 'test order',
-    BillDate: '16/12/2025',
-    ShippingType: '0001',
-    externalId: 'TCSQ20251218405',
-    Detail: [
+    customerCode: 'CUST001',
+    customerName: 'Tech Solutions Inc.',
+    remark: 'Sample ecommerce order',
+    billDate: '2026-01-15T10:30:00',
+    ShippingType: 'CKLX008',
+    externalId: 'ORD-2026-001',
+    detail: [
       {
-        Code: '000002',
-        Name: 'FREIDORA DE AIRE FDA08V',
-        Price: 550,
-        Quantity: 1,
-        WarehouseId: 1540425,
+        code: 'PROD001',
+        name: 'Wireless Mouse',
+        price: 29.99,
+        quantity: 5,
+        warehouseId: 1540519,
+        remark: 'Standard delivery',
+      },
+      {
+        code: 'PROD002',
+        name: 'USB-C Cable 2m',
+        price: 12.50,
+        quantity: 10,
+        warehouseId: 1540519,
+        remark: 'Express shipping',
+      },
+      {
+        code: 'PROD003',
+        name: 'Laptop Stand',
+        price: 45.00,
+        quantity: 3,
+        warehouseId: 1540520,
+        remark: 'Gift wrap requested',
       },
     ],
-    Guides: [
-      { Url: 'https://translate.google.com.mx/?hl=es&sl=es&tl=en&text=guia&op=translate' },
-      { Url: 'https://translate.google.com.mx/?hl=es&sl=es&tl=en&text=guia&op=translate' }
-    ]
   }
 
   const response = await fetch(url, {
@@ -169,24 +196,38 @@ async function callAzureFunction(payload: SalePayload): Promise<void> {
 }
 
 const payload: SalePayload = {
-    CustomerCode: "CHH2A100706",
-    CustomerName: "MEGALUZ S.A. DE C.V.",
-    Remark: "test order",
-    BillDate: "16/12/2025",
-    ShippingType: "0001",
-    externalId: "TCSQ20251218405",
+    CustomerCode: "CUST001",
+    CustomerName: "Tech Solutions Inc.",
+    Remark: "Sample ecommerce order",
+    BillDate: "2026-01-15T10:30:00",
+    ShippingType: "CKLX008",
+    externalId: "ORD-2026-001",
     Detail: [
         {
-            Code: "000002",
-            Name: "FREIDORA DE AIRE FDA08V",
-            Price: 550,
-            Quantity: 1,
-            WarehouseId: 1540425
+            Code: "PROD001",
+            Name: "Wireless Mouse",
+            Price: 29.99,
+            Quantity: 5,
+            WarehouseId: 1540519
+        },
+        {
+            Code: "PROD002",
+            Name: "USB-C Cable 2m",
+            Price: 12.50,
+            Quantity: 10,
+            WarehouseId: 1540519
+        },
+        {
+            Code: "PROD003",
+            Name: "Laptop Stand",
+            Price: 45.00,
+            Quantity: 3,
+            WarehouseId: 1540520
         }
     ],
     Guides: [
-        { Url: "https://translate.google.com.mx/?hl=es&sl=es&tl=en&text=guia&op=translate" },
-        { Url: "https://translate.google.com.mx/?hl=es&sl=es&tl=en&text=guia&op=translate" }
+        { Url: "https://example.com/tracking/guide1" },
+        { Url: "https://example.com/tracking/guide2" }
     ]
 };
 
@@ -203,24 +244,38 @@ $url = "http://bambootesting.ddns.net:5000/api/Orders";
 $apiKey = "your-api-key-here";
 
 $data = [
-    "CustomerCode" => "CHH2A100706",
-    "CustomerName" => "MEGALUZ S.A. DE C.V.",
-    "Remark" => "test order",
-    "BillDate" => "16/12/2025",
-    "ShippingType" => "0001",
-    "externalId" => "TCSQ20251218405",
+    "CustomerCode" => "CUST001",
+    "CustomerName" => "Tech Solutions Inc.",
+    "Remark" => "Sample ecommerce order",
+    "BillDate" => "2026-01-15T10:30:00",
+    "ShippingType" => "CKLX008",
+    "externalId" => "ORD-2026-001",
     "Detail" => [
         [
-            "Code" => "000002",
-            "Name" => "FREIDORA DE AIRE FDA08V",
-            "Price" => 550,
-            "Quantity" => 1,
-            "WarehouseId" => 1540425
+            "Code" => "PROD001",
+            "Name" => "Wireless Mouse",
+            "Price" => 29.99,
+            "Quantity" => 5,
+            "WarehouseId" => 1540519
+        ],
+        [
+            "Code" => "PROD002",
+            "Name" => "USB-C Cable 2m",
+            "Price" => 12.50,
+            "Quantity" => 10,
+            "WarehouseId" => 1540519
+        ],
+        [
+            "Code" => "PROD003",
+            "Name" => "Laptop Stand",
+            "Price" => 45.00,
+            "Quantity" => 3,
+            "WarehouseId" => 1540520
         ]
     ],
     "Guides" => [
-        ["Url" => "https://translate.google.com.mx/?hl=es&sl=es&tl=en&text=guia&op=translate"],
-        ["Url" => "https://translate.google.com.mx/?hl=es&sl=es&tl=en&text=guia&op=translate"]
+        ["Url" => "https://example.com/tracking/guide1"],
+        ["Url" => "https://example.com/tracking/guide2"]
     ]
 ];
 

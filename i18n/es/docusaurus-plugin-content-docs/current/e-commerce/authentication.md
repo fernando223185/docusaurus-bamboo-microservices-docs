@@ -1,4 +1,4 @@
----
+﻿---
 sidebar_position: 2
 title: Autenticación
 ---
@@ -35,27 +35,27 @@ curl -X POST "http://bambootesting.ddns.net:5000/api/Orders" \
 -H "Content-Type: application/json" \
 -H "X-API-Key: YOUR_API_KEY_HERE" \
 -d '{
-  "CustomerCode": "CHH2A100706",
-  "CustomerName": "MEGALUZ S.A. DE C.V.",
+  "CustomerCode": "CUST001",
+  "CustomerName": "Tech Solutions Inc.",
   "Remark": "prueba de documentaci\u00f3n API",
-  "BillDate": "16/12/2025",
-  "ShippingType": "0001",
-  "externalId": "TCSQ20251218405",
+  "BillDate": "2026-01-15T10:30:00",
+  "ShippingType": "CKLX008",
+  "externalId": "ORD-2026-001",
   "Detail": [
     {
-      "Code": "000002",
-      "Name": "FREIDORA DE AIRE FDA08V",
+      "Code": "PROD001",
+      "Name": "Mouse Inalámbrico",
       "Price": 550,
       "Quantity": 1,
-      "WarehouseId": 1540416
+      "WarehouseId": 1540519
     }
   ],
   "Guides": [
     {
-      "Url": "https://example.com/guia1"
+      "Url": "https://ejemplo.com/rastreo/guia1"
     },
     {
-      "Url": "https://example.com/guia2"
+      "Url": "https://ejemplo.com/rastreo/guia2"
     }
   ]
 }'
@@ -73,27 +73,27 @@ fetch(
       'X-API-Key': 'YOUR_API_KEY_HERE',
     },
     body: JSON.stringify({
-      CustomerCode: 'CHH2A100706',
-      CustomerName: 'MEGALUZ S.A. DE C.V.',
+      CustomerCode: 'CUST001',
+      CustomerName: 'Tech Solutions Inc.',
       Remark: 'prueba de documentaci\u00f3n API',
-      BillDate: '16/12/2025',
-      ShippingType: '0001',
-      externalId: 'TCSQ20251218405',
+      BillDate: '2026-01-15T10:30:00',
+      ShippingType: 'CKLX008',
+      externalId: 'ORD-2026-001',
       Detail: [
         {
-          Code: '000002',
-          Name: 'FREIDORA DE AIRE FDA08V',
+          Code: 'PROD001',
+          Name: 'Mouse Inalámbrico',
           Price: 550,
           Quantity: 1,
-          WarehouseId: 1540416
+          WarehouseId: 1540519
         }
       ],
       Guides: [
         {
-          Url: 'https://translate.google.com.mx/?hl=es&sl=es&tl=en&text=guia&op=translate'
+          Url: 'https://ejemplo.com/rastreo/guia1'
         },
         {
-          Url: 'https://translate.google.com.mx/?hl=es&sl=es&tl=en&text=guia&op=translate'
+          Url: 'https://ejemplo.com/rastreo/guia1'
         }
       ]
     }),
@@ -121,3 +121,4 @@ Sí, el header X-API-Key es el método estándar y único soportado para la aute
 
 **P3: ¿Qué ocurre si la clave es inválida?**
 Si la clave enviada es incorrecta, falta, está expirada o fue revocada, la API responderá con 401 Unauthorized, y la solicitud no será procesada.
+

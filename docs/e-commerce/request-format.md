@@ -1,11 +1,11 @@
----
+﻿---
 sidebar_position: 3
 title: Request Format
 ---
 
-# 📤 Request Format
+#  Request Format
 
-## 📋 Create Order
+##  Create Order
 
 ### Endpoint
 
@@ -22,7 +22,7 @@ title: Request Format
 
 - **`externalId`**: External reference ID from your system (required). This allows you to send your own sale folio/reference number.
 
-## 🚚 ShippingType Codes
+##  ShippingType Codes
 
 Available codes for the `ShippingType` field:
 
@@ -31,7 +31,7 @@ Available codes for the `ShippingType` field:
 | CKLX007 | Ship to e-commerce platform | Send merchandise to the e-commerce platform |
 | CKLX008 | Ship to customer on behalf of e-commerce platform | Ship to customer on behalf of the e-commerce platform |
 
-## 🏢 Warehouses
+##  Warehouses
 
 Available warehouse IDs for the `WarehouseId` field:
 
@@ -47,33 +47,42 @@ Available warehouse IDs for the `WarehouseId` field:
 
 ```json
 {
-  "CustomerCode": "CHH2A100706",
-  "CustomerName": "MEGALUZ S.A. DE C.V.",
-  "Remark": "test nito",
-  "BillDate": "16/12/2025",
-  "ShippingType": "0001",
-  "externalId": "TCSQ20251218405",
-  "Detail": [
+  "customerCode": "CUST001",
+  "customerName": "Tech Solutions Inc.",
+  "remark": "Sample ecommerce order",
+  "billDate": "2026-01-15T10:30:00",
+  "ShippingType": "CKLX008",
+  "externalId": "ORD-2026-001",
+  "detail": [
     {
-      "Code": "000002",
-      "Name": "FREIDORA DE AIRE FDA08V",
-      "Price": 550,
-      "Quantity": 1,
-      "WarehouseId": 1540416
-    }
-  ],
-  "Guides": [
-    {
-      "Url": "https://translate.google.com.mx/?hl=es\u0026sl=es\u0026tl=en\u0026text=guia\u0026op=translate"
+      "code": "PROD001",
+      "name": "Wireless Mouse",
+      "price": 29.99,
+      "quantity": 5,
+      "warehouseId": 1540519,
+      "remark": "Standard delivery"
     },
     {
-      "Url": "https://translate.google.com.mx/?hl=es\u0026sl=es\u0026tl=en\u0026text=guia\u0026op=translate"
+      "code": "PROD002",
+      "name": "USB-C Cable 2m",
+      "price": 12.50,
+      "quantity": 10,
+      "warehouseId": 1540519,
+      "remark": "Express shipping"
+    },
+    {
+      "code": "PROD003",
+      "name": "Laptop Stand",
+      "price": 45.00,
+      "quantity": 3,
+      "warehouseId": 1540520,
+      "remark": "Gift wrap requested"
     }
   ]
 }
 ```
 
-## ❌ Cancel Order
+##  Cancel Order
 
 ### Endpoint
 

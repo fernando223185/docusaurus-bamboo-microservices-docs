@@ -35,27 +35,27 @@ curl -X POST "http://bambootesting.ddns.net:5000/api/Orders" \
 -H "Content-Type: application/json" \
 -H "X-API-Key: YOUR_API_KEY_HERE" \
 -d '{
-  "CustomerCode": "CHH2A100706",
-  "CustomerName": "MEGALUZ S.A. DE C.V.",
-  "Remark": "test api documentation",
-  "BillDate": "16/12/2025",
-  "ShippingType": "0001",
-  "externalId": "TCSQ20251218405",
+  "CustomerCode": "CUST001",
+  "CustomerName": "Tech Solutions Inc.",
+  "Remark": "Sample API documentation order",
+  "BillDate": "2026-01-15T10:30:00",
+  "ShippingType": "CKLX008",
+  "externalId": "ORD-2026-001",
   "Detail": [
     {
-      "Code": "000002",
-      "Name": "FREIDORA DE AIRE FDA08V",
-      "Price": 550,
-      "Quantity": 1,
-      "WarehouseId": 1540416
+      "Code": "PROD001",
+      "Name": "Wireless Mouse",
+      "Price": 29.99,
+      "Quantity": 5,
+      "WarehouseId": 1540519
     }
   ],
   "Guides": [
     {
-      "Url": "https://example.com/guide1"
+      "Url": "https://example.com/tracking/guide1"
     },
     {
-      "Url": "https://example.com/guide2"
+      "Url": "https://example.com/tracking/guide2"
     }
   ]
 }'
@@ -73,27 +73,27 @@ fetch(
       'X-API-Key': 'YOUR_API_KEY_HERE',
     },
     body: JSON.stringify({
-      CustomerCode: 'CHH2A100706',
-      CustomerName: 'MEGALUZ S.A. DE C.V.',
-      Remark: 'test api documentation',
-      BillDate: '16/12/2025',
-      ShippingType: '0001',
-      externalId: 'TCSQ20251218405',
+      CustomerCode: 'CUST001',
+      CustomerName: 'Tech Solutions Inc.',
+      Remark: 'Sample API documentation order',
+      BillDate: '2026-01-15T10:30:00',
+      ShippingType: 'CKLX008',
+      externalId: 'ORD-2026-001',
       Detail: [
         {
-          Code: '000002',
-          Name: 'FREIDORA DE AIRE FDA08V',
-          Price: 550,
-          Quantity: 1,
-          WarehouseId: 1540416
+          Code: 'PROD001',
+          Name: 'Wireless Mouse',
+          Price: 29.99,
+          Quantity: 5,
+          WarehouseId: 1540519
         }
       ],
       Guides: [
         {
-          Url: 'https://translate.google.com.mx/?hl=es&sl=es&tl=en&text=guia&op=translate'
+          Url: 'https://example.com/tracking/guide1'
         },
         {
-          Url: 'https://translate.google.com.mx/?hl=es&sl=es&tl=en&text=guia&op=translate'
+          Url: 'https://example.com/tracking/guide2'
         }
       ]
     }),

@@ -47,26 +47,36 @@ IDs de almacén disponibles para el campo `WarehouseId`:
 
 ```json
 {
-  "CustomerCode": "CHH2A100706",
-  "CustomerName": "MEGALUZ S.A. DE C.V.",
-  "Remark": "test nito",
-  "BillDate": "16/12/2025",
-  "ShippingType": "0001",
-  "externalId": "TCSQ20251218405",
-  "Detail": [
+  "customerCode": "CUST001",
+  "customerName": "Tech Solutions Inc.",
+  "remark": "Pedido de muestra para ecommerce",
+  "billDate": "2026-01-15T10:30:00",
+  "ShippingType": "CKLX008",
+  "externalId": "ORD-2026-001",
+  "detail": [
     {
-      "code": "000002",
-      "name": "FREIDORA DE AIRE FDA08V",
-      "price": 550,
-      "quantity": 100,
-      "warehouseId": 1540416
+      "code": "PROD001",
+      "name": "Mouse Inalámbrico",
+      "price": 29.99,
+      "quantity": 5,
+      "warehouseId": 1540519,
+      "remark": "Entrega estándar"
     },
     {
-      "code": "000005",
-      "name": "FREIDORA DE AIRE FDA09A",
-      "price": 380,
-      "quantity": 200,
-      "warehouseId": 1540416
+      "code": "PROD002",
+      "name": "Cable USB-C 2m",
+      "price": 12.50,
+      "quantity": 10,
+      "warehouseId": 1540519,
+      "remark": "Envío express"
+    },
+    {
+      "code": "PROD003",
+      "name": "Soporte para Laptop",
+      "price": 45.00,
+      "quantity": 3,
+      "warehouseId": 1540520,
+      "remark": "Envolver para regalo"
     }
   ]
 }
