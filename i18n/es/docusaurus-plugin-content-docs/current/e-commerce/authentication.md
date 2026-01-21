@@ -37,7 +37,7 @@ curl -X POST "http://bambootesting.ddns.net:5000/api/Orders" \
 -d '{
   "CustomerCode": "CUST001",
   "CustomerName": "Tech Solutions Inc.",
-  "Remark": "prueba de documentaci\u00f3n API",
+  "Remark": "Pedido de muestra para documentación API",
   "BillDate": "2026-01-15T10:30:00",
   "ShippingType": "CKLX008",
   "externalId": "ORD-2026-001",
@@ -45,9 +45,10 @@ curl -X POST "http://bambootesting.ddns.net:5000/api/Orders" \
     {
       "Code": "PROD001",
       "Name": "Mouse Inalámbrico",
-      "Price": 550,
-      "Quantity": 1,
-      "WarehouseId": 1540519
+      "Price": 29.99,
+      "Quantity": 5,
+      "WarehouseId": 1540519,
+      "remark": "Entrega estándar"
     }
   ],
   "Guides": [
@@ -75,7 +76,7 @@ fetch(
     body: JSON.stringify({
       CustomerCode: 'CUST001',
       CustomerName: 'Tech Solutions Inc.',
-      Remark: 'prueba de documentaci\u00f3n API',
+      Remark: 'Pedido de muestra para documentación API',
       BillDate: '2026-01-15T10:30:00',
       ShippingType: 'CKLX008',
       externalId: 'ORD-2026-001',
@@ -83,9 +84,10 @@ fetch(
         {
           Code: 'PROD001',
           Name: 'Mouse Inalámbrico',
-          Price: 550,
-          Quantity: 1,
-          WarehouseId: 1540519
+          Price: 29.99,
+          Quantity: 5,
+          WarehouseId: 1540519,
+          remark: 'Entrega estándar'
         }
       ],
       Guides: [
@@ -93,7 +95,7 @@ fetch(
           Url: 'https://ejemplo.com/rastreo/guia1'
         },
         {
-          Url: 'https://ejemplo.com/rastreo/guia1'
+          Url: 'https://ejemplo.com/rastreo/guia2'
         }
       ]
     }),

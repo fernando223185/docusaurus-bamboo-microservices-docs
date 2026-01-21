@@ -47,7 +47,8 @@ curl -X POST "http://bambootesting.ddns.net:5000/api/Orders" \
       "Name": "Wireless Mouse",
       "Price": 29.99,
       "Quantity": 5,
-      "WarehouseId": 1540519
+      "WarehouseId": 1540519,
+      "remark": "Standard delivery"
     }
   ],
   "Guides": [
@@ -85,7 +86,8 @@ fetch(
           Name: 'Wireless Mouse',
           Price: 29.99,
           Quantity: 5,
-          WarehouseId: 1540519
+          WarehouseId: 1540519,
+          remark: 'Standard delivery'
         }
       ],
       Guides: [
