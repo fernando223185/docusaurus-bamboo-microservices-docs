@@ -3,6 +3,10 @@ sidebar_position: 3
 title: Formato de Solicitud
 ---
 
+import UrlUpdateAlertEs from '@site/src/components/UrlUpdateAlertEs';
+
+<UrlUpdateAlertEs />
+
 # 📤 Formato de Solicitud
 
 ## 📋 Crear Orden
@@ -31,6 +35,17 @@ Códigos disponibles para el campo `ShippingType`:
 | CKLX007 | 发货至电商平台 | Enviar mercancía a la plataforma de comercio electrónico |
 | CKLX008 | 代电商平台发货至客户 | Envío al cliente en nombre de la plataforma de comercio electrónico |
 
+## 📦 Códigos de Almacén de Despacho
+
+Códigos disponibles para el campo `dispatchWarehouse`:
+
+| Código | Descripción |
+|--------|-------------|
+| CDMX | Almacén de despacho Ciudad de México |
+| GDL | Almacén de despacho Guadalajara |
+
+**Nota:** Este campo solo acepta `CDMX` o `GDL` como valores válidos.
+
 ## 🏢 IDs de Almacén
 
 IDs de almacén disponibles para el campo `WarehouseId`:
@@ -53,6 +68,7 @@ IDs de almacén disponibles para el campo `WarehouseId`:
   "billDate": "2026-01-15T10:30:00",
   "ShippingType": "CKLX008",
   "externalId": "ORD-2026-001",
+  "dispatchWarehouse": "CDMX",
   "detail": [
     {
       "code": "PROD001",
@@ -77,6 +93,11 @@ IDs de almacén disponibles para el campo `WarehouseId`:
       "quantity": 3,
       "warehouseId": 1540520,
       "remark": "Envolver para regalo"
+    }
+  ],
+  "guides": [
+    {
+      "url": "https://example.com/guide/track123"
     }
   ]
 }

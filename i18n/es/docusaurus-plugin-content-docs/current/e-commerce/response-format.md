@@ -3,6 +3,10 @@ sidebar_position: 4
 title: Formato de Respuesta
 ---
 
+import UrlUpdateAlertEs from '@site/src/components/UrlUpdateAlertEs';
+
+<UrlUpdateAlertEs />
+
 # 📥 Formato de Respuesta
 
 ## 📋 Respuesta de Crear Orden

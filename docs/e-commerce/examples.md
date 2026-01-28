@@ -3,6 +3,10 @@ sidebar_position: 5
 title: Examples
 ---
 
+import UrlUpdateAlert from '@site/src/components/UrlUpdateAlert';
+
+<UrlUpdateAlert />
+
 # ✨ Examples
 
 ## 📋 Create Order Examples
@@ -28,6 +32,7 @@ public async Task CallApiAsync()
         billDate = "2026-01-15T10:30:00",
         ShippingType = "CKLX008",
         externalId = "ORD-2026-001",
+        dispatchWarehouse = "CDMX",
         detail = new[]
         {
             new
@@ -86,6 +91,7 @@ async function callAzureFunction() {
     billDate: '2026-01-15T10:30:00',
     ShippingType: 'CKLX008',
     externalId: 'ORD-2026-001',
+    dispatchWarehouse: 'CDMX',
     detail: [
       {
         code: 'PROD001',
@@ -202,6 +208,7 @@ const payload: SalePayload = {
     BillDate: "2026-01-15T10:30:00",
     ShippingType: "CKLX008",
     externalId: "ORD-2026-001",
+    dispatchWarehouse: "CDMX",
     Detail: [
         {
             Code: "PROD001",
@@ -250,6 +257,7 @@ $data = [
     "BillDate" => "2026-01-15T10:30:00",
     "ShippingType" => "CKLX008",
     "externalId" => "ORD-2026-001",
+    "dispatchWarehouse" => "CDMX",
     "Detail" => [
         [
             "Code" => "PROD001",

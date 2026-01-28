@@ -3,6 +3,10 @@ sidebar_position: 1
 title: Introduction
 ---
 
+import UrlUpdateAlert from '@site/src/components/UrlUpdateAlert';
+
+<UrlUpdateAlert />
+
 # 📘 Introduction
 
 This microservice receives **Purchase Orders** data from **E-Commerce**.
@@ -19,12 +23,16 @@ Once received, the API validates and transforms the purchase orders so they can 
 
 This API serves as a bridge between external e-commerce channels and Bamboo ERP’s internal workflows, ensuring that all purchase orders are imported accurately, standardized, and ready for downstream processing.
 
+:::warning URL Update
+The API base URL has been updated. Please use the new URL below for all requests.
+:::
+
 ## 🌐 Base URL
 
 ```txt
-https://{URL}/api/
+https://bamboonetapi.ddns.net/api/
 ```
 
 ## 🌐 Swagger UI
 
-> Por el momento no disponible
+> Currently unavailable

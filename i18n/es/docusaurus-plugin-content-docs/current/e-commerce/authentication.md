@@ -3,6 +3,10 @@ sidebar_position: 2
 title: Autenticación
 ---
 
+import UrlUpdateAlertEs from '@site/src/components/UrlUpdateAlertEs';
+
+<UrlUpdateAlertEs />
+
 # 🔐 Autenticación
 
 Todas las solicitudes a la API de órdenes provenientes de e-Commerce requieren **autenticación** mediante una **clave API**.
@@ -41,6 +45,7 @@ curl -X POST "http://bambootesting.ddns.net:5000/api/Orders" \
   "BillDate": "2026-01-15T10:30:00",
   "ShippingType": "CKLX008",
   "externalId": "ORD-2026-001",
+  "dispatchWarehouse": "CDMX",
   "Detail": [
     {
       "Code": "PROD001",
@@ -80,6 +85,7 @@ fetch(
       BillDate: '2026-01-15T10:30:00',
       ShippingType: 'CKLX008',
       externalId: 'ORD-2026-001',
+      dispatchWarehouse: 'CDMX',
       Detail: [
         {
           Code: 'PROD001',

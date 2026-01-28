@@ -3,6 +3,10 @@ sidebar_position: 1
 title: Introducción
 ---
 
+import UrlUpdateAlertEs from '@site/src/components/UrlUpdateAlertEs';
+
+<UrlUpdateAlertEs />
+
 # 📘 Introducción
 
 Este microservicio recibe datos de **Órdenes de Compra (Purchase Orders)** provenientes de **E-Commerce**.
@@ -19,10 +23,14 @@ Una vez recibidas, la API valida y transforma las órdenes de compra para que pu
 
 Esta API funciona como un puente entre los canales externos de e-commerce y los flujos internos de Bamboo ERP, asegurando que todas las órdenes de compra sean importadas de manera precisa, estandarizada y listas para su procesamiento posterior.
 
+:::warning Actualización de URL
+La URL base de la API ha sido actualizada. Por favor utiliza la nueva URL que aparece a continuación para todas las solicitudes.
+:::
+
 ## 🌐 Base URL
 
 ```txt
-https://ecommercestoreorders-fgaxd7axcnezhnbh.westus-01.azurewebsites.net/api/storeorder
+https://bamboonetapi.ddns.net/api/
 ```
 
 ## 🌐 Swagger UI

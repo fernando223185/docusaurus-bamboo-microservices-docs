@@ -2,7 +2,9 @@
 sidebar_position: 4
 title: Response Format
 ---
+import UrlUpdateAlert from '@site/src/components/UrlUpdateAlert';
 
+<UrlUpdateAlert />
 # 📥 Response Format
 
 ## 📋 Create Order Response

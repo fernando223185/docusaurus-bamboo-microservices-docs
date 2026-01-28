@@ -3,6 +3,10 @@ sidebar_position: 6
 title: FAQs
 ---
 
+import UrlUpdateAlertEs from '@site/src/components/UrlUpdateAlertEs';
+
+<UrlUpdateAlertEs />
+
 # ❓ FAQs
 
 1. **How do I get the x-functions-key?**  

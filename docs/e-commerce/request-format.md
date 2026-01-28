@@ -3,6 +3,10 @@ sidebar_position: 3
 title: Request Format
 ---
 
+import UrlUpdateAlert from '@site/src/components/UrlUpdateAlert';
+
+<UrlUpdateAlert />
+
 #  Request Format
 
 ##  Create Order
@@ -31,6 +35,17 @@ Available codes for the `ShippingType` field:
 | CKLX007 | Ship to e-commerce platform | Send merchandise to the e-commerce platform |
 | CKLX008 | Ship to customer on behalf of e-commerce platform | Ship to customer on behalf of the e-commerce platform |
 
+##  Dispatch Warehouse Codes
+
+Available codes for the `dispatchWarehouse` field:
+
+| Code | Description |
+|------|-------------|
+| CDMX | Mexico City dispatch warehouse |
+| GDL | Guadalajara dispatch warehouse |
+
+**Note:** This field only accepts `CDMX` or `GDL` as valid values.
+
 ##  Warehouses
 
 Available warehouse IDs for the `WarehouseId` field:
@@ -53,6 +68,7 @@ Available warehouse IDs for the `WarehouseId` field:
   "billDate": "2026-01-15T10:30:00",
   "ShippingType": "CKLX008",
   "externalId": "ORD-2026-001",
+  "dispatchWarehouse": "CDMX",
   "detail": [
     {
       "code": "PROD001",
@@ -77,6 +93,11 @@ Available warehouse IDs for the `WarehouseId` field:
       "quantity": 3,
       "warehouseId": 1540520,
       "remark": "Gift wrap requested"
+    }
+  ],
+  "guides": [
+    {
+      "url": "https://example.com/guide/track123"
     }
   ]
 }
