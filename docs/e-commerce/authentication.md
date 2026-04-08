@@ -53,6 +53,7 @@ curl -X POST "http://bambootesting.ddns.net:5000/api/Orders" \
       "Price": 29.99,
       "Quantity": 5,
       "WarehouseId": 1540519,
+      "Ppp": 12,
       "remark": "Standard delivery"
     }
   ],
@@ -93,6 +94,7 @@ fetch(
           Price: 29.99,
           Quantity: 5,
           WarehouseId: 1540519,
+          Ppp: 12,
           remark: 'Standard delivery'
         }
       ],

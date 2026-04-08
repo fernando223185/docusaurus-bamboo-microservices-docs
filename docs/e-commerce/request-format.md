@@ -25,6 +25,19 @@ import UrlUpdateAlert from '@site/src/components/UrlUpdateAlert';
 ### Required Fields
 
 - **`externalId`**: External reference ID from your system (required). This allows you to send your own sale folio/reference number.
+- **`detail[].Ppp`**: Pieces-per-package value required per product line. This value is consumed by Bamboo ERP for quote detail tables and operational validation.
+
+## Detail Item Fields
+
+| Field | Type | Required | Description |
+|------|------|----------|-------------|
+| code | string | Yes | Product code |
+| name | string | Yes | Product name |
+| price | number | Yes | Unit price |
+| quantity | number | Yes | Requested quantity |
+| warehouseId | number | Yes | Target warehouse ID |
+| Ppp | number | Yes | Pieces-per-package value for the product line |
+| remark | string | No | Line-level notes |
 
 ##  ShippingType Codes
 
@@ -76,6 +89,7 @@ Available warehouse IDs for the `WarehouseId` field:
       "price": 29.99,
       "quantity": 5,
       "warehouseId": 1540519,
+      "Ppp": 12,
       "remark": "Standard delivery"
     },
     {
@@ -84,6 +98,7 @@ Available warehouse IDs for the `WarehouseId` field:
       "price": 12.50,
       "quantity": 10,
       "warehouseId": 1540519,
+      "Ppp": 24,
       "remark": "Express shipping"
     },
     {
@@ -92,6 +107,7 @@ Available warehouse IDs for the `WarehouseId` field:
       "price": 45.00,
       "quantity": 3,
       "warehouseId": 1540520,
+      "Ppp": 6,
       "remark": "Gift wrap requested"
     }
   ],

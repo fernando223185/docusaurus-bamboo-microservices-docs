@@ -42,6 +42,7 @@ public async Task CallApiAsync()
                 price = 29.99,
                 quantity = 5,
                 warehouseId = 1540519,
+              Ppp = 12,
                 remark = "Standard delivery"
             },
             new
@@ -51,6 +52,7 @@ public async Task CallApiAsync()
                 price = 12.50,
                 quantity = 10,
                 warehouseId = 1540519,
+              Ppp = 24,
                 remark = "Express shipping"
             },
             new
@@ -60,6 +62,7 @@ public async Task CallApiAsync()
                 price = 45.00,
                 quantity = 3,
                 warehouseId = 1540520,
+              Ppp = 6,
                 remark = "Gift wrap requested"
             }
         }
@@ -99,6 +102,7 @@ async function callAzureFunction() {
         price: 29.99,
         quantity: 5,
         warehouseId: 1540519,
+        Ppp: 12,
         remark: 'Standard delivery',
       },
       {
@@ -107,6 +111,7 @@ async function callAzureFunction() {
         price: 12.50,
         quantity: 10,
         warehouseId: 1540519,
+        Ppp: 24,
         remark: 'Express shipping',
       },
       {
@@ -115,6 +120,7 @@ async function callAzureFunction() {
         price: 45.00,
         quantity: 3,
         warehouseId: 1540520,
+        Ppp: 6,
         remark: 'Gift wrap requested',
       },
     ],
@@ -151,6 +157,7 @@ interface DetailItem {
   Price: number;
   Quantity: number;
   WarehouseId: number;
+  Ppp: number;
 }
 
 interface GuideItem {
@@ -215,21 +222,24 @@ const payload: SalePayload = {
             Name: "Wireless Mouse",
             Price: 29.99,
             Quantity: 5,
-            WarehouseId: 1540519
+          WarehouseId: 1540519,
+          Ppp: 12
         },
         {
             Code: "PROD002",
             Name: "USB-C Cable 2m",
             Price: 12.50,
             Quantity: 10,
-            WarehouseId: 1540519
+          WarehouseId: 1540519,
+          Ppp: 24
         },
         {
             Code: "PROD003",
             Name: "Laptop Stand",
             Price: 45.00,
             Quantity: 3,
-            WarehouseId: 1540520
+          WarehouseId: 1540520,
+          Ppp: 6
         }
     ],
     Guides: [
@@ -264,21 +274,24 @@ $data = [
             "Name" => "Wireless Mouse",
             "Price" => 29.99,
             "Quantity" => 5,
-            "WarehouseId" => 1540519
+          "WarehouseId" => 1540519,
+          "Ppp" => 12
         ],
         [
             "Code" => "PROD002",
             "Name" => "USB-C Cable 2m",
             "Price" => 12.50,
             "Quantity" => 10,
-            "WarehouseId" => 1540519
+          "WarehouseId" => 1540519,
+          "Ppp" => 24
         ],
         [
             "Code" => "PROD003",
             "Name" => "Laptop Stand",
             "Price" => 45.00,
             "Quantity" => 3,
-            "WarehouseId" => 1540520
+          "WarehouseId" => 1540520,
+          "Ppp" => 6
         ]
     ],
     "Guides" => [

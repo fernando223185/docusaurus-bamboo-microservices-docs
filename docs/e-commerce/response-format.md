@@ -31,7 +31,8 @@ import UrlUpdateAlert from '@site/src/components/UrlUpdateAlert';
       "field": "CustomerCode",
       "message": "'Customer Code' must not be empty."
     },
-    { "field": "BillDate", "message": "Bill Date cannot be empty" }
+    { "field": "BillDate", "message": "Bill Date cannot be empty" },
+    { "field": "Detail[0].Ppp", "message": "PPP is required and must be greater than 0" }
   ],
   "message": "Validation failed"
 }
