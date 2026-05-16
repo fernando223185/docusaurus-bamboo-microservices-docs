@@ -10,7 +10,7 @@ title: Endpoints
 Gets general order information.
 
 ```http
-GET https://bamboonetapi.ddns.net/api/pedidos/{folio}
+GET http://pfconexionlinkbits.ddns.net:50780/api/pedidos/{folio}
 ```
 
 | Parameter | Type | Required | Description |
@@ -35,7 +35,7 @@ GET https://bamboonetapi.ddns.net/api/pedidos/{folio}
 Gets the current progress of the order.
 
 ```http
-GET https://bamboonetapi.ddns.net/api/pedidos/{folio}/estatus
+GET http://pfconexionlinkbits.ddns.net:50780/api/pedidos/{folio}/estatus
 ```
 
 | Parameter | Type | Required | Description |
@@ -55,7 +55,7 @@ GET https://bamboonetapi.ddns.net/api/pedidos/{folio}/estatus
 Gets the carrier, tracking number, and tracking URL associated with an order.
 
 ```http
-GET https://bamboonetapi.ddns.net/api/envios/{folio}
+GET http://pfconexionlinkbits.ddns.net:50780/api/envios/{folio}
 ```
 
 | Parameter | Type | Required | Description |
@@ -97,7 +97,7 @@ Due to the operational process, the carrier may be available before a tracking n
 Gets prices by internal code or SKU.
 
 ```http
-GET https://bamboonetapi.ddns.net/api/precios/productos/{identificador}
+GET http://pfconexionlinkbits.ddns.net:50780/api/precios/productos/{identificador}
 ```
 
 | Parameter | Type | Required | Description |
@@ -134,7 +134,7 @@ GET https://bamboonetapi.ddns.net/api/precios/productos/{identificador}
 Gets the products associated with a warranty ticket folio.
 
 ```http
-GET https://bamboonetapi.ddns.net/api/garantias/{folioTicket}
+GET http://pfconexionlinkbits.ddns.net:50780/api/garantias/{folioTicket}
 ```
 
 | Parameter | Type | Required | Description |

@@ -23,7 +23,7 @@ Accept: application/json
 ## curl example
 
 ```bash
-curl -X GET "https://bamboonetapi.ddns.net/api/pedidos/2605-00005" \
+curl -X GET "http://pfconexionlinkbits.ddns.net:50780/api/pedidos/2605-00005" \
   -H "X-API-Key: YOUR_API_KEY_HERE" \
   -H "Accept: application/json"
 ```
@@ -33,7 +33,7 @@ curl -X GET "https://bamboonetapi.ddns.net/api/pedidos/2605-00005" \
 ```javascript
 async function queryOrder(folio) {
   const response = await fetch(
-    `https://bamboonetapi.ddns.net/api/pedidos/${encodeURIComponent(folio)}`,
+    `http://pfconexionlinkbits.ddns.net:50780/api/pedidos/${encodeURIComponent(folio)}`,
     {
       method: 'GET',
       headers: {

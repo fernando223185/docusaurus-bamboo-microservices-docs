@@ -10,7 +10,7 @@ title: Integration examples
 ```javascript
 async function queryShipment(folio) {
   const response = await fetch(
-    `https://bamboonetapi.ddns.net/api/envios/${encodeURIComponent(folio)}`,
+    `http://pfconexionlinkbits.ddns.net:50780/api/envios/${encodeURIComponent(folio)}`,
     {
       method: 'GET',
       headers: {

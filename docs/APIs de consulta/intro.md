@@ -23,7 +23,7 @@ These APIs let external systems query BambooERP information without accessing th
 ## Base URL
 
 ```text
-https://bamboonetapi.ddns.net/api/
+http://pfconexionlinkbits.ddns.net:50780/api/
 ```
 
 ## General format
